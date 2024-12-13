@@ -3,13 +3,13 @@ title: Pandoc Markdown testing
 date: 2012-01-01 00:00:00
 toc: true
 comment: no
-...
+---
 
 # Pandoc Markdown testing
 
 ## figure
 
-![测试图片标题](https://static.yangsite.com/IMG_6220.jpg)
+![测试图片标题](https://files.imtxc.com/blogfiles/IMG_6220.jpg)
 
 ## MathJax
 

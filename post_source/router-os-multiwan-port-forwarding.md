@@ -3,7 +3,7 @@ title: Router OS 2 Wan 1 Lan Port Forwarding
 date: 2024-03-29 22:12:00
 toc: no
 comment: true
-...
+---
 
 # Router OS 2 Wan 1 Lan Port Forwarding
 
@@ -15,7 +15,7 @@ comment: true
 
 网络拓扑如图:
 
-![](./pics/two-wan-one-lan-portforwarding.svg)
+![](https://files.imtxc.com/blogfiles/two-wan-one-lan-portforwarding.svg)
 
 ## 实现
 1. 路由表

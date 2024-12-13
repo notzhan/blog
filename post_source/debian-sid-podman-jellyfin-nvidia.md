@@ -88,8 +88,8 @@ jellyfin/jellyfin
 
 ### 转码配置
 
-![Jellyfin 转码配置](https://static.yangsite.com/img/jellyfin/jellyfin1.png)
-![Jellyfin 转码配置](https://static.yangsite.com/img/jellyfin/jellyfin2.png)
+![Jellyfin 转码配置](https://files.imtxc.com/blogfiles/jellyfin1.png)
+![Jellyfin 转码配置](https://files.imtxc.com/blogfiles/jellyfin2.png)
 
 ### 中文字体配置
 

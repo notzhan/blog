@@ -13,7 +13,7 @@ p7-p9 是 5V 供电， p13-p15 是 12V 供电，由于 3.3V 供电已经不在 s
 
 SATA 数据线和电源线的定义如下:
 
-![](https://static.yangsite.com/img/sata-power-cable-spec.jpg)
+![](https://files.imtxc.com/blogfiles/sata-power-cable-spec.jpg)
 
 但是，在 sata spec v3.3 中，新增加了一个定义，叫做 **Power Disable**, 定义如下:
 

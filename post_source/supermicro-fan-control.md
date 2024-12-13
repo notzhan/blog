@@ -3,7 +3,7 @@ title: 超微主板 IPMI 风扇控制
 date: 2024-04-17 20:52:00
 toc: yes
 comment: true
-...
+---
 
 # 超微主板 IPMI 风扇控制
 

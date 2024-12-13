@@ -10,7 +10,7 @@ comment: no
 
 ## 7 月, 奥森
 
-![向日葵](https://static.yangsite.com/img/DSCF4455.JPG)
+![向日葵1](https://files.imtxc.com/blogfiles/DSCF4455.JPG)
 
-![向日葵](./pics/DSCF4418.JPG)
+![向日葵2](https://files.imtxc.com/blogfiles/DSCF4418.JPG)
 

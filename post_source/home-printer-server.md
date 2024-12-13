@@ -167,7 +167,7 @@ systemctl restart cups
 
 如图，cups 的配置就已经完成了。
 
-![](https://static.yangsite.com/img/hp1020cups.png)
+![](https://files.imtxc.com/blogfiles/hp1020cups.png)
 
 #### 客户端配置
 
