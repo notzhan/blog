@@ -1,5 +1,5 @@
 ---
-title: 使用 github issue 系统作为个人博客暨本博客源码分享
+title: "使用 github issue 系统作为个人博客暨本博客源码分享"
 date: 2024-12-12 11:38:28
 toc: yes
 comment: true

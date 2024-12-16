@@ -1,5 +1,5 @@
 ---
-title: 本 blog 构建环境迁移到 Github Action
+title: "本 blog 构建环境迁移到 Github Action"
 date: 2024-12-12 11:32:16
 toc: yes
 comment: true
