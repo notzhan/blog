@@ -153,7 +153,7 @@ build ()
 
 			if [[ "$line" =~ itle:(.*$) ]]
 			then
-				TITLE=$(echo "$line" |sed -n 's/.itle: //p')
+				TITLE=$(echo "$line" |sed -n 's/.itle: //p'| sed 's/^"\(.*\)"$/\1/')
 			fi
 
 			if [[ "$line" =~ ate:(.*$) ]]
