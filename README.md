@@ -1,6 +1,6 @@
 ## [Yang](https://www.imtxc.com)
 ## 2024
-- [ Centos Linux 错误 'su: failed to execute /bin/bash: Resource temporarily unavailable' 解决](https://github.com/notzhan/blog/issues/3) on Dec 16
+- [ Centos Linux 错误 su: failed to execute /bin/bash: Resource temporarily unavailable 解决](https://github.com/notzhan/blog/issues/3) on Dec 16
 - [ 使用 github issue 系统作为个人博客暨本博客源码分享](https://github.com/notzhan/blog/issues/2) on Dec 12
 - [ 本 blog 构建环境迁移到 Github Action](https://github.com/notzhan/blog/issues/1) on Dec 12
 - [ Setting up cgit with caddy2 http.handlers.cgi on Debian](post_source/setting-up-cgit-with-caddy.md) on Dec 02

@@ -1,5 +1,5 @@
 ---
-title: Centos Linux 错误 su: failed to execute /bin/bash: Resource temporarily unavailable 解决
+title: "Centos Linux 错误 su: failed to execute /bin/bash: Resource temporarily unavailable 解决"
 date: 2024-12-16 05:24:20
 toc: yes
 comment: true
