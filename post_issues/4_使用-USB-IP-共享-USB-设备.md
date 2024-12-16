@@ -9,7 +9,7 @@ comment: true
 ## 服务端
 
 ### Windows
-#### 1. 下载 [usbipd-win](https://github.com/dorssel/usbipd-win/releases/) 并安装 usbip windows server
+#### 1. 下载 [usbipd-win](https://github.com/dorssel/usbipd-win/releases/) 并安装 `usbip windows server`
 
 #### 2. 使用管理员权限启动 Powershell
 
@@ -55,7 +55,7 @@ Exportable USB devices
 ======================
  - 192.168.12.23
         3-1: Clay Logic : unknown product (20a0:42d4)
-           : USB\VID_20A0&PID_42D4\01313715
+           : USB\VID_20A0&PID_42D4\0.......
            : (Defined at Interface level) (00/00/00)
            :  0 - Human Interface Device / No Subclass / None (03/00/00)
            :  1 - Vendor Specific Class / Vendor Specific Subclass / Vendor Specific Protocol (ff/ff/ff)
