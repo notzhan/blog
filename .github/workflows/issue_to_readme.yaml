@@ -30,7 +30,7 @@ jobs:
           jq -c '.[]' issues.json | while read -r issue; do
             NUMBER=$(echo "$issue" | jq -r '.number')
             TITLE=$(echo "$issue" | jq -r '.title')
-            FILENAME=$(echo "$issue" | jq -r '.title' | sed 's/[\\/:\ *?"<>|]/-/g; s/-\+/-/g')
+            FILENAME=$(echo "$issue" | jq -r '.title' | sed 's/[\\/:\ \"*?"<>|]/-/g; s/-\+/-/g')
             CREATED_AT=$(echo "$issue" | jq -r '.created_at'|date '+%Y-%m-%d %H:%M:%S' -f -)
             SORTDATE=$(date -d "$CREATED_AT" +%y%m%d)
             HTML_URL=$(echo "$issue" | jq -r '.html_url')
