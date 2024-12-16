@@ -18,15 +18,36 @@ comment: true
 ```bash
 usbipd list
 ```
+
+输出
+
+```
+Connected:
+BUSID  VID:PID    DEVICE                                                        STATE
+1-7    046d:c52b  Logitech USB Input Device, USB 输入设备                       Not shared
+1-8    8087:0026  英特尔(R) 无线 Bluetooth(R)                                   Not shared
+2-4    0b95:1790  ASIX USB to Gigabit Ethernet Family Adapter                   Not shared
+3-1    20a0:42d4  USB 输入设备, WebUSB, Microsoft Usbccid Smartcard Reader ...  Not shared
+3-3    0483:5026  USB 输入设备
+```
+
 #### 4. 共享指定的 USB 设备 (BUSID)
 
 ```bash
 usbipd bind  -b 3-1
 ```
 
-#### 5. 再次使用 `usbipd list` 命令查看设备，可以看到指定的设备是 `Shared` 的状态， 以上步骤操作输出如图：
+#### 5. 再次使用 `usbipd list` 命令查看设备，可以看到指定的设备是 `Shared` 的状态，如下
 
-![](https://files.imtxc.com/blogfiles/usb-share/win-usb-server-1.png)
+```
+Connected:
+BUSID  VID:PID    DEVICE                                                        STATE
+1-7    046d:c52b  Logitech USB Input Device, USB 输入设备                       Not shared
+1-8    8087:0026  英特尔(R) 无线 Bluetooth(R)                                   Not shared
+2-4    0b95:1790  ASIX USB to Gigabit Ethernet Family Adapter                   Not shared
+3-1    20a0:42d4  USB 输入设备, WebUSB, Microsoft Usbccid Smartcard Reader ...  Shared   << 该设备被共享
+3-3    0483:5026  USB 输入设备
+```
 
 #### 6. 结束共享
 
