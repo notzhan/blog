@@ -38,7 +38,7 @@ jobs:
             FILE="${DIRNAME}/${NUMBER}_${FILENAME}.md"
 
             echo "---" > "$FILE"
-            echo "title: $TITLE" >> "$FILE"
+            echo "title: \"$TITLE\"" >> "$FILE"
             echo "date: $CREATED_AT" >> "$FILE"
             echo "toc: yes" >> "$FILE"
             echo "comment: true" >> "$FILE"
