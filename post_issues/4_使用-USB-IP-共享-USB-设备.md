@@ -8,31 +8,27 @@ comment: true
 # 使用 USB/IP 共享 USB 设备
 ## 服务端
 
-### Linux
-- [ ] TODO
-
 ### Windows
-1. 下载 [usbipd-win](https://github.com/dorssel/usbipd-win/releases/) 并安装 usbip windows server
+#### 1. 下载 [usbipd-win](https://github.com/dorssel/usbipd-win/releases/) 并安装 usbip windows server
 
-2. 使用管理员权限启动 Powershell
+#### 2. 使用管理员权限启动 Powershell
 
-3. 列出当前设备上的 USB 设备
+#### 3. 列出当前设备上的 USB 设备
 
 ```bash
 usbipd list
 ```
-4. 共享指定的 USB 设备 (BUSID)
+#### 4. 共享指定的 USB 设备 (BUSID)
 
 ```bash
 usbipd bind  -b 3-1
 ```
 
-
-5. 再次使用 `usbipd list` 命令查看设备，可以看到指定的设备是 `Shared` 的状态， 以上步骤操作输出如图：
+#### 5. 再次使用 `usbipd list` 命令查看设备，可以看到指定的设备是 `Shared` 的状态， 以上步骤操作输出如图：
 
 ![](https://files.imtxc.com/blogfiles/usb-share/win-usb-server-1.png)
 
-6. 结束共享
+#### 6. 结束共享
 
 ```bash
 usbipd unbind -a
@@ -42,13 +38,13 @@ usbipd unbind -a
 
 ### Linux
 
-1. 安装 usbip
+#### 1. 安装 usbip
 
 ```bash
 sudo apt install usbip
 ```
 
-2. 查看服务端共享的 usb 设备列表
+#### 2. 查看服务端共享的 usb 设备列表
 
 ```bash
 sudo usbip list -r 192.168.12.23
@@ -66,13 +62,15 @@ Exportable USB devices
            :  2 - Chip/SmartCard / unknown subclass / unknown protocol (0b/00/00)
 ```
 
-3. 加载服务端共享的 usb 设备
+#### 3. 加载服务端共享的 usb 设备
 
 ```bash
 sudo usbip attach  -r 192.168.12.23 -b 3-1
 ```
 
-4. 列出当前系统上加载的远程 usb 设备
+#### 4. 列出当前系统上加载的远程 usb 设备
+
+- 使用 usbip 命令
 
 ```bash
 sudo usbip port
@@ -88,7 +86,7 @@ Port 00: <Port in Use> at Full Speed(12Mbps)
            -> remote bus/dev 003/001
 ```
 
-5. dmesg 命令输出
+- dmesg 命令输出
 ```
 [114820.288560] vhci_hcd vhci_hcd.0: Device attached
 ...
@@ -97,7 +95,7 @@ Port 00: <Port in Use> at Full Speed(12Mbps)
 ...
 ```
 
-6. lsusb 输出
+- lsusb 输出
 ```
 lsusb -s 011:003
 Bus 011 Device 003: ID 20a0:42d4 Clay Logic CanoKey Pigeon
@@ -105,7 +103,7 @@ Bus 011 Device 003: ID 20a0:42d4 Clay Logic CanoKey Pigeon
 
 通过以上 usbip port、dmesg 和 lsusb 输出可以看到物理连接在服务端上的 usb 设备 "CanoKey Pigeon" 已经可以在当前 Linux 端使用。
 
-6. 卸载远程 usb 设备
+#### 5. 卸载远程 usb 设备
 
 ```bash
 sudo usbip detach -p 00
