@@ -15,9 +15,11 @@ echo "someuser soft nproc unlimited" >> /etc/security/limits.d/20-nproc.conf
 
 ## 错误现象:
 
-在 CentOS 系统执行 `su - someuser` 命令时，无法执行，提示错误:
+在 CentOS 系统执行 `su - someuser` 命令时报错:
 
->  su: failed to execute /bin/bash: Resource temporarily unavailable
+
+> su: failed to execute /bin/bash: Resource temporarily unavailable
+
 
 ## 分析 & 解决
 
