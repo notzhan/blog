@@ -9,6 +9,7 @@ comment: true
 ## TLDR:
 
 ```bash
+sysctl -w  kernel.pid_max=65534
 echo "someuser soft nproc unlimited" >> /etc/security/limits.d/20-nproc.conf
 ```
 
@@ -18,9 +19,17 @@ echo "someuser soft nproc unlimited" >> /etc/security/limits.d/20-nproc.conf
 
 >  su: failed to execute /bin/bash: Resource temporarily unavailable
 
-## 分析
+## 分析 & 解决
 
-查看当前系统各用户的进程数:
+通过 `ps -eLf | wc -l` 查看当前系统总进程数量
+
+通过 `sysctl kernel.pid_max` 查看内核允许最大进程数量，如果内核允许进程数量不足，使用以下命令修改限制：
+
+```bash
+sysctl -w  kernel.pid_max=65534
+```
+
+修改 `kernel.pid_max` 后如果错误依然存在，则可能是因为用户进程数限制导致，查看当前系统各用户的进程数:
 
 ```bash
 ps h -Led -o user | sort | uniq -c | sort -n
