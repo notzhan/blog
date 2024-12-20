@@ -131,3 +131,10 @@ sudo usbip detach -p 00
 
 # 此处的 00 即 usbip port 命令输出中的 Port 值
 ```
+
+## 错误解决
+
+- libusbip: error: udev_device_new_from_subsystem_sysname failed
+```bash
+sudo modprobe vhci-hcd
+```
