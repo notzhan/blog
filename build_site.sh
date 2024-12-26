@@ -215,6 +215,10 @@ build ()
 	cp static/favicon.png "$DEPLOY_DIRECTORY"/
 	cp static/background.png "$DEPLOY_DIRECTORY"/
 
+  echo "js"
+  mkdir -p ${DEPLOY_DIRECTORY}/scripts
+  cp static/webviso.js ${DEPLOY_DIRECTORY}/scripts/
+
 	rm -rf ${DEPLOY_DIRECTORY}/pics
   mkdir -p ${DEPLOY_DIRECTORY}/pics
 
