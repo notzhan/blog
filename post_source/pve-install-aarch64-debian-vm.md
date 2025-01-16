@@ -29,6 +29,7 @@ sudo vim `find /etc/pve/nodes -name "101.conf"`
     - 添加 `boot: dcn` 行
 - 创建 efi 盘
 ```bash
+sudo apt install pve-edk2-firmware-aarch64
 sudo qm set <vmid>  -efidisk0 local-lvm:1,format=raw
 ```
 最终虚拟机配置文件内容参考
