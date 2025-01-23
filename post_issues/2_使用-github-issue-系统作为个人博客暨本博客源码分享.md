@@ -75,3 +75,10 @@ comment: true
 这里唯一需要修改的是你的 github 用户名和域名，不要在 `yourgithubusername.github.io` 后加任何仓库名称等内容.
 
 3. 访问  `yourgithubusername.github.io`
+
+---
+> hi.
+> 
+> 我按照你的此 issue的内容，设置好了。创建了博客https://briteming.github.io/nb/ ,怎么里面没有我新建的帖子出现呢？我明明已经提交了issue: https://github.com/briteming/nb/issues 谢谢回复
+
+确认一下 token 的权限，以及 "Setting - Code and automation - Action - General - Workflow permissions - Read and write permissions" 是不是设置正确，我在你的仓库的 actions 中没看到 Generate README 运行过。
