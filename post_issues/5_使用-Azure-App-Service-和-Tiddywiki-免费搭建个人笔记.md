@@ -16,6 +16,8 @@ comment: true
 
 - 免费的 Azure App Service 有 CPU 时间、内存等使用限制，可能影响到使用的限制为每天 165MB 出站流量
 
+![quota1](https://files.imtxc.com/blogfiles/azure-tiddlywiki/quota1.png)
+
 - 不能使用自定义域名，只能使用 `*.azurewebsites.net`
 
 
@@ -34,12 +36,20 @@ comment: true
 
     - 区域选择就近区域
 
+![createapp1](https://files.imtxc.com/blogfiles/azure-tiddlywiki/createapp1.png)
+
     - 定价区域选择 ** 免费(F1) **
+
+![createapp2](https://files.imtxc.com/blogfiles/azure-tiddlywiki/createapp2.png)
 
 2. 创建完成后，进入 Web App 的配置页面，找到 “设置 - 配置”, 打开 "SCM 基本身份验证" 和 "FTP 基本身份验证发布凭据"
 
+![ftps1](https://files.imtxc.com/blogfiles/azure-tiddlywiki/createapp3.png)
+
+
 3. 在 "部署 - 部署中心" 中找到 "FTPS" 选项，获取 FTPS 主机名, 设置用户名和密码
 
+![ftps2](https://files.imtxc.com/blogfiles/azure-tiddlywiki/createapp4.png)
 
 ### 下载 Tiddywiki, 修改 package.json, 上传到 Azure
 
@@ -58,6 +68,8 @@ cp ./editions/empty/tiddlywiki.info wiki/
     "start": "node tiddlywiki.js ./wiki --listen port=8080 host=0.0.0.0 username=httpusername password=httppassword"
   }
 ```
+![package.json](https://files.imtxc.com/blogfiles/azure-tiddlywiki/packagejson.png)
+
 
 ```bash
 zip -r tiddywiki.zip .
@@ -81,7 +93,8 @@ unzip -q tiddywiki.zip
 
 - 在 web app 管理页面中，找到 "概述 - 重启"，点击重启
 
+![deploy](https://files.imtxc.com/blogfiles/azure-tiddlywiki/deploy.png)
 
 ### 访问 Tiddywiki
 
-发布完成后，等待几分钟，访问 `https://test-tiddywiki.azurewebsites.net` 即可看到 Tiddywiki 的界面, 需要使用 httpuser 和 httppassword 认证
+发布完成后，等待几分钟，访问 `https://your-appname.azurewebsites.net` 即可看到 Tiddywiki 的界面, 需要使用 httpuser 和 httppassword 认证
