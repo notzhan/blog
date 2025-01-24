@@ -77,8 +77,10 @@ comment: true
 3. 访问  `yourgithubusername.github.io`
 
 ---
-> hi.
-> 
 > 我按照你的此 issue的内容，设置好了。创建了博客https://briteming.github.io/nb/ ,怎么里面没有我新建的帖子出现呢？我明明已经提交了issue: https://github.com/briteming/nb/issues 谢谢回复
 
-确认一下 token 的权限，以及 "Setting - Code and automation - Action - General - Workflow permissions - Read and write permissions" 是不是设置正确，我在你的仓库的 actions 中没看到 Generate README 运行过。
+我在你的仓库的 actions 中没看到 Generate README 运行过.
+
+1. 请查看仓库是不是启用了 actions，github fork 的仓库默认不会启用上游仓库中的 workflows，请在 Actions 页面启用;
+2. 确认一下 token 的权限，以及 "Setting - Code and automation - Action - General - Workflow permissions - Read and write permissions" 是不是设置正确.
+3. 建议删除掉本仓库中的 post_sources 中的文件
