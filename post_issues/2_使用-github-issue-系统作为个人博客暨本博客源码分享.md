@@ -40,9 +40,9 @@ comment: true
 
 ## 使用步骤
 
-1. Fork 本仓库，或者 [下载](https://github.com/notzhan/blog/archive/refs/heads/main.zip)，上传到你的仓库
+1. Fork 本仓库，或者 [下载](https://github.com/notzhan/blog/archive/refs/heads/main.zip)，上传到你的仓库, 并且在 action 中启用 workflows，github 默认会禁用 fork 的仓库中的 workflows.
 
-2. 删除 `post_issues` 和 `post_sources` 中的所有文件, 并且 **务必修改 about.md 文件**，这里是我的信息
+2. ** 删除 ** `post_issues` 和 `post_sources` 中的所有文件, 并且 **务必修改 about.md 文件**，这里是我的信息
 
 > PS: 如果只需要使用 github 仓库作为博客系统，不需要静态页面托管、自定义 css 等，可以删除本项目除 `.github/workflows/issue_to_readme.yaml`  和  **LICENSE** 文件外的所有文件, 即使用 issues 系统作为博客，仅需这一个 action 文件即可。
 
