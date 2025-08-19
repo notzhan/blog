@@ -1,5 +1,6 @@
 ## [Yang](https://www.imtxc.com)
 ## 2025
+- [ MacOS 时间机器 没有可用的时间机器目的位置 解决](https://github.com/notzhan/blog/issues/6) on Aug 19
 - [ 使用 Azure App Service 和 Tiddywiki 免费搭建个人笔记](https://github.com/notzhan/blog/issues/5) on Jan 23
 ## 2024
 - [ 使用 USB/IP 共享 USB 设备](https://github.com/notzhan/blog/issues/4) on Dec 16
