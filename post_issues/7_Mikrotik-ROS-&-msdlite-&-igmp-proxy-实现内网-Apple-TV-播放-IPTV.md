@@ -53,25 +53,27 @@ Apple TV/Phone/PC <-> Mikrotik RB5009 LAN Bridge (内网网桥，可以包含下
 
 5. 配置 msdlite 容器
 
-5.1 配置 mikrotik ros 容器环境，网桥等，如果已经配置过其他容器，可以跳过, 但是一定要在容器网桥上开启 igmp-snooping, 这可以防止组播流在多个容器内泛洪。
+    5.1 配置 mikrotik ros 容器环境，网桥等，如果已经配置过其他容器，可以跳过, 但是一定要在容器网桥上开启 igmp-snooping, 这可以防止组播流在多个容器内泛洪。
 
-```bash
-/interface bridge add name=dockers igmp-snooping=yes
-/ip address add interface=dockers address=172.16.0.1/24
-```
+        ```bash
+        /interface bridge add name=dockers igmp-snooping=yes
+        /ip address add interface=dockers address=172.16.0.1/24
+        ```
 
-5.2 配置 msdlite 容器网卡
-```bash
-/interface veth add name=veth-msd address=172.16.0.2/24 gateway=172.16.0.1
-/interface bridge port add interface=veth-msd bridge=dockers
-```
+    5.2 配置 msdlite 容器网卡
 
-5.3 创建 msdlite 容器
+        ```bash
+        /interface veth add name=veth-msd address=172.16.0.2/24 gateway=172.16.0.1
+        /interface bridge port add interface=veth-msd bridge=dockers
+        ```
 
-```bash
-/container add file=msd.tar interface=veth-msd root-dir=docker/images/msd start-on-boot=yes logging=no
-/container start $MSDCONTAINER_ID
-``````
+    5.3 创建 msdlite 容器
+
+        ```bash
+        /container add file=msd.tar interface=veth-msd root-dir=docker/images/msd start-on-boot=yes logging=no
+        /container start $MSDCONTAINER_ID
+        ``````
+
 
 6. 配置 igmp-proxy
 
@@ -100,7 +102,7 @@ Apple TV/Phone/PC <-> Mikrotik RB5009 LAN Bridge (内网网桥，可以包含下
 
 2. 内网客户端可以通过 http://192.168.2.1:7088/组播地址:端口 访问 IPTV 频道, 组播地址和端口可以通过抓包获取，或使用其他人共享的列表，如 `rtp://239.3.1.172:8001`, 则内网客户端实际访问的地址应该为 `http://192.168.2.1:7088/rtp/239.3.1.172:8001`
 
-3, 为了在 Apple TV 等设备上方便使用，建议将频道列表整理成一个 M3U 播放列表文件, 播放列表中的每一行格式为：
+3. 为了在 Apple TV 等设备上方便使用，建议将频道列表整理成一个 M3U 播放列表文件, 播放列表中的每一行格式为：
 
 ```
 #EXTINF:-1,频道名称
