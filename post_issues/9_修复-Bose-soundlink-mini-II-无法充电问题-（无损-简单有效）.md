@@ -24,5 +24,7 @@ comment: true
 
 这个办法好像能解决大部分 Bose 音箱电池 “假死” 的故障。
 
+![The Bose Support Site](https://files.imtxc.com/blogfiles/2025-12-01-soundlink/soundlink-ship-mode.png)
+
 ## ref
 1, <https://www.bose.co.uk/en_gb/support/articles/HC1326/productCodes/soundlink_color_ii/article.html>
