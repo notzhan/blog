@@ -1,5 +1,6 @@
 ## [Yang](https://www.imtxc.com)
 ## 2025
+- [ 修复 Bose soundlink mini 无法充电问题 （无损/简单有效）](https://github.com/notzhan/blog/issues/9) on Dec 01
 - [ 秋日胜春朝](https://github.com/notzhan/blog/issues/8) on Nov 03
 - [ Mikrotik ROS & msdlite & igmp-proxy 实现内网 Apple TV 播放 IPTV](https://github.com/notzhan/blog/issues/7) on Sep 05
 - [ MacOS 时间机器 没有可用的时间机器目的位置 解决](https://github.com/notzhan/blog/issues/6) on Aug 19
