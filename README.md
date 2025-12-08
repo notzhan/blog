@@ -1,5 +1,6 @@
 ## [Yang](https://www.imtxc.com)
 ## 2025
+- [ Libvirt 配置 virtio pci legacy 支持](https://github.com/notzhan/blog/issues/10) on Dec 08
 - [ 修复 Bose soundlink mini II 无法充电问题 （无损/简单有效）](https://github.com/notzhan/blog/issues/9) on Dec 01
 - [ 秋日胜春朝](https://github.com/notzhan/blog/issues/8) on Nov 03
 - [ Mikrotik ROS & msdlite & igmp-proxy 实现内网 Apple TV 播放 IPTV](https://github.com/notzhan/blog/issues/7) on Sep 05
