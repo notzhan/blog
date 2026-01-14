@@ -1,4 +1,6 @@
 ## [Yang](https://www.imtxc.com)
+## 2026
+- [ Postcrossing](https://github.com/notzhan/blog/issues/11) on Jan 14
 ## 2025
 - [ Libvirt 配置 virtio pci legacy 支持](https://github.com/notzhan/blog/issues/10) on Dec 08
 - [ 修复 Bose soundlink mini II 无法充电问题 （无损/简单有效）](https://github.com/notzhan/blog/issues/9) on Dec 01
