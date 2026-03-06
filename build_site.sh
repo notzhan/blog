@@ -21,6 +21,11 @@ MARKDOWNOPTS_DISQUS="${PANDOC_POST} $DISQUS $FOOTER_POST"
 DEPLOY_DIRECTORY="deploy"
 SITE_NAME="Yang"
 
+if ! command -v pandoc >/dev/null 2>&1; then
+  echo "Error: pandoc is required but was not found in PATH." >&2
+  exit 1
+fi
+
 function generate_RSS_feed {
     echo "Generating RSS feed"
     declare items
@@ -256,4 +261,3 @@ while getopts ":bcdh:" opt; do
 done
 
 exit 0
-

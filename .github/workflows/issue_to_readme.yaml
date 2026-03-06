@@ -10,7 +10,10 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    if: github.repository_owner_id == github.event.issue.user.id || github.event_name == 'push'
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' && github.event.issue.user.login == github.repository_owner) ||
+      (github.event_name == 'issue_comment' && github.event.comment.user.login == github.repository_owner)
 
     steps:
       - name: Checkout repository
@@ -30,8 +33,9 @@ jobs:
           jq -c '.[]' issues.json | while read -r issue; do
             NUMBER=$(echo "$issue" | jq -r '.number')
             TITLE=$(echo "$issue" | jq -r '.title')
+            SAFE_TITLE=$(echo "$TITLE" | tr '\t' ' ')
             FILENAME=$(echo "$issue" | jq -r '.title' | sed 's/[\\/:\ \"*?'\''<>|]/-/g; s/--*/-/g; s/^-//; s/-$//')
-            CREATED_AT=$(echo "$issue" | jq -r '.created_at'|date '+%Y-%m-%d %H:%M:%S' -f -)
+            CREATED_AT=$(date -d "$(echo "$issue" | jq -r '.created_at')" '+%Y-%m-%d %H:%M:%S')
             SORTDATE=$(date -d "$CREATED_AT" +%y%m%d)
             HTML_URL=$(echo "$issue" | jq -r '.html_url')
             BODY=$(echo "$issue" | jq -r '.body // ""')
@@ -65,7 +69,7 @@ jobs:
                 echo "$COMMENT_BODY" >> "$FILE"
               fi
             done
-            echo "$SORTDATE <li> <a href=\"$HTML_URL\">$TITLE</a></li>" >> README.txt
+            printf '%s\t%s\t%s\n' "$SORTDATE" "$HTML_URL" "$SAFE_TITLE" >> README.txt
           done
           rm -f issues.json
 
@@ -94,6 +98,7 @@ jobs:
               if [[ "$line" =~ itle:(.*$) ]]
               then
                 TITLE=$(echo "$line" |sed -n 's/.itle: //p')
+                TITLE=$(echo "$TITLE" | tr '\t' ' ')
               fi
 
               if [[ "$line" =~ ate:(.*$) ]]
@@ -110,7 +115,7 @@ jobs:
             SORTDATE=$(date -d "$POSTDATE" +%y%m%d)
 
             DATE=$(echo -n $POSTDATE |cut -d ' ' -f 1)
-            echo "$SORTDATE" '<li> <a href="'"$SOURCE_DIR/$POST.md"'">'"$TITLE"'</a></li>' >> README.txt
+            printf '%s\t%s\t%s\n' "$SORTDATE" "$SOURCE_DIR/$POST.md" "$TITLE" >> README.txt
           done
 
       - name: Generate README.md
@@ -140,21 +145,16 @@ jobs:
             prev_year=""
             months=(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
 
-            while read -r line; do
-              date=$(echo "$line" | awk '{print $1}')
+            while IFS=$'\t' read -r date href title; do
               month_index=$((10#${date:2:2} - 1))
               day=${date:4:2}
               month=${months[$month_index]}
-              content=$(echo "$line" | sed 's/^[0-9]\{6\} //')
               year="20${date:0:2}"
 
               if [[ "$year" != "$prev_year" ]]; then
                 echo "## $year" >> "$output_file"
                 prev_year="$year"
               fi
-
-              href=$(echo "$line" | grep -oP '(?<=href=")[^"]+')
-              title=$(echo "$line" | grep -oP '(?<=>)[^<]*'| tr -d '\n')
 
               echo "- [$title]($href) on $month $day" >> "$output_file"
 
