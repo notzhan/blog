@@ -33,7 +33,7 @@ jobs:
           jq -c '.[]' issues.json | while read -r issue; do
             NUMBER=$(echo "$issue" | jq -r '.number')
             TITLE=$(echo "$issue" | jq -r '.title')
-            SAFE_TITLE=$(echo "$TITLE" | tr '\t' ' ')
+            SAFE_TITLE=$(echo "$TITLE" | tr '\t\r\n' '   ')
             FILENAME=$(echo "$issue" | jq -r '.title' | sed 's/[\\/:\ \"*?'\''<>|]/-/g; s/--*/-/g; s/^-//; s/-$//')
             CREATED_AT=$(date -d "$(echo "$issue" | jq -r '.created_at')" '+%Y-%m-%d %H:%M:%S')
             SORTDATE=$(date -d "$CREATED_AT" +%y%m%d)
@@ -98,7 +98,7 @@ jobs:
               if [[ "$line" =~ itle:(.*$) ]]
               then
                 TITLE=$(echo "$line" |sed -n 's/.itle: //p')
-                TITLE=$(echo "$TITLE" | tr '\t' ' ')
+                TITLE=$(echo "$TITLE" | tr '\t\r\n' '   ')
               fi
 
               if [[ "$line" =~ ate:(.*$) ]]
