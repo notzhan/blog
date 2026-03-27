@@ -55,8 +55,8 @@ END
 </rss>
 END
 )
-    touch ${DEPLOY_DIRECTORY}/rss.xml
-    echo  "$template" > ${DEPLOY_DIRECTORY}/rss.xml
+    touch "${DEPLOY_DIRECTORY}"/rss.xml
+    echo  "$template" > "${DEPLOY_DIRECTORY}"/rss.xml
 }
 
 clean ()
@@ -125,8 +125,8 @@ list_to_md() {
 
 build ()
 {
-	mkdir -p $DEPLOY_DIRECTORY/
-	mkdir -p $DEPLOY_DIRECTORY/diagrams
+	mkdir -p "$DEPLOY_DIRECTORY"/
+	mkdir -p "$DEPLOY_DIRECTORY"/diagrams
 	rm -f index.md index.txt
 	touch index.md index.txt
 
@@ -192,7 +192,7 @@ build ()
 		fi
 
 		echo "$MKCMD $file -o $DEPLOY_DIRECTORY/$post_html"
-		$MKCMD "$file" -o $DEPLOY_DIRECTORY/$post_html
+		$MKCMD "$file" -o "$DEPLOY_DIRECTORY/$post_html"
 
 		DATE=$(echo -n $POSTDATE |cut -d ' ' -f 1)
 
@@ -216,11 +216,11 @@ build ()
 	cp static/background.png "$DEPLOY_DIRECTORY"/
 
   echo "js"
-  mkdir -p ${DEPLOY_DIRECTORY}/scripts
-  cp static/webviso.js ${DEPLOY_DIRECTORY}/scripts/
+  mkdir -p "${DEPLOY_DIRECTORY}"/scripts
+  cp static/webviso.js "${DEPLOY_DIRECTORY}"/scripts/
 
-	rm -rf ${DEPLOY_DIRECTORY}/pics
-  mkdir -p ${DEPLOY_DIRECTORY}/pics
+	rm -rf "${DEPLOY_DIRECTORY}"/pics
+  mkdir -p "${DEPLOY_DIRECTORY}"/pics
 
 	echo Done.
 }
