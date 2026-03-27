@@ -2,7 +2,7 @@
 title: Setting up cgit with caddy2 http.handlers.cgi on Debian
 date: 2024-12-02 08:10:00
 toc: no
-slud: setting-up-cgit-with-caddy2
+slug: setting-up-cgit-with-caddy2
 comment: true
 ---
 
