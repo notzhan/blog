@@ -1,44 +1,110 @@
-body {
-    background-image: url("/background.png");
+/* =========================================
+   1. 变量定义 (CSS Variables)
+========================================= */
+:root {
+    /* 颜色配置 */
+    --color-text-main: #333333;
+    --color-bg-page: #ffffff;
+    --color-bg-body: transparent; /* 给背景图留位 */
+    --color-link: darkblue;
+    --color-link-hover: blue;
+    
+    /* 模块颜色 */
+    --color-code-bg: #fdf6e3;
+    --color-code-border: darkgrey;
+    --color-table-stripe: #f2f2f2;
+    --color-quote-border: lightgrey;
+    
+    /* 警告框颜色 */
+    --color-warning-bg: #fff1cd;
+    --color-warning-border: orange;
+    --color-warning-text: orange;
+    
+    /* 边框颜色 */
+    --color-border-main: black;
+
+    /* 字体栈 (现代系统字体) */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-mono: "Fira Code", Hack, "Source Code Pro", "Roboto Mono", monospace;
+
+    /* 布局尺寸 */
+    --layout-max-width: 800px;
 }
 
-div.page {
-    max-width: 800px;
+/* =========================================
+   2. 全局样式 (Global & Reset)
+========================================= */
+body {
+    background-image: url("/background.png");
+    font-family: var(--font-sans);
+    color: var(--color-text-main);
+    margin: 0;
+    /* 给移动端留一点点外边距，防止贴边 */
+    padding: 1rem 0; 
+}
+
+/* =========================================
+   3. 页面骨架 (Layout)
+========================================= */
+.page {
+    max-width: var(--layout-max-width);
     overflow-x: auto;
-    margin: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
-    border: thin solid black;
-    padding: 0rem 1rem 1rem 1rem;
+    margin: 0 auto;
+    background-color: var(--color-bg-page);
+    border: thin solid var(--color-border-main);
+    padding: 0 1rem 1rem 1rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .page > header {
-    padding-left: 5px
+    padding-left: 5px;
 }
 
-ul {
-    list-style-type: '– ';
+main {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+    line-height: 1.5;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+footer {
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-weight: lighter;
+    font-size: 0.7rem;
 }
 
-table, th, tr, td {
-    padding: 5px;
+/* =========================================
+   4. 导航菜单 (Navigation)
+========================================= */
+nav {
+    padding: 5px 30px;
 }
 
-tr {
-    border-bottom: 1px solid black;
+nav a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: normal;
+    margin-right: 20px;
+    white-space: nowrap;
+    /* 增大移动端点击热区 */
+    display: inline-block;
+    padding: 5px 0;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+nav a:hover {
+    text-decoration: underline;
 }
 
-/* Header (title + subtitle) */
+nav a:visited {
+    color: var(--color-link);
+}
+
+/* =========================================
+   5. 排版与内容 (Typography & Content)
+========================================= */
+/* 标题系统 */
 header > h1 {
     font-size: 1.4rem;
     font-weight: lighter;
@@ -49,38 +115,12 @@ header > h2 {
     font-weight: lighter;
 }
 
-/* Navigation menu */
-
-nav {
-	padding: 5px 30px 5px 30px;
-}
-
-nav a {
-    color: darkblue;
-    text-decoration: none;
-    font-weight: normal;
-    /*padding: 10px;*/
-    margin-right: 20px;
-    white-space: nowrap;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-nav a:visited {
-    color: darkblue;
-}
-
-/* Main matter */
-
-main {
-    /*border-left: 1px solid grey;
-    border-right: 1px solid grey;*/
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 30px;
-    line-height: 1.5em;
+#title-block-header h1 {
+    font-size: 1.5rem;
+    display: block;
+    margin-block: 0.67em;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }
 
 h1.recent {
@@ -89,96 +129,126 @@ h1.recent {
     font-variant: small-caps;
 }
 
-main h1.title,
-main > article > h2,
-main > article > h3,
-main > article > h4 {
-    line-height: 1em;
+.title,
+article h2,
+article h3,
+article h4 {
+    line-height: 1.2;
 }
 
-main h1.title {
+.title {
     font-size: 1.5rem;
 }
 
-main > ul.posts > li > a {
+h2.year {
     font-size: 1rem;
-    color: blue;
 }
 
-main > ul.posts > li > a:visited {
-    color: darkblue;
+.date {
+    font-size: 0.8rem;
+    font-weight: lighter;
 }
 
-main > ul.posts blockquote {
-    border-left: 3px solid lightgrey;
+/* 列表 */
+ul {
+    list-style-type: '– ';
+}
+
+.posts li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.posts > li > a {
+    font-size: 1rem;
+    color: var(--color-link-hover);
+}
+
+.posts > li > a:visited {
+    color: var(--color-link);
+}
+
+/* 引用块 */
+.posts blockquote {
+    border-left: 3px solid var(--color-quote-border);
     padding-left: 10px;
     margin-left: 20px;
     font-size: 0.9rem;
 }
 
-main > ul.posts li {
-    list-style: none;
-    margin-bottom: 10px;
-}
-
-h2.year {
-    font-size: 1em;
-}
-
-span.date {
-    font-size: 0.8rem;
-    font-weight: lighter;
-}
-
-article figcaption {
-	text-align: center;
-	font-style: italic;
-}
-
-article pre, article .code {
-    border-top: 2px solid darkgrey;
-    border-bottom: 2px solid darkgrey;
-    overflow-x: auto;
-    text-align: left;
-    line-height: 1.2em;
-    font-variant-ligatures: none;
-	background-color: #fdf6e3  !important;
-	font-family: Fira Code, Hack, Source Code Pro, Roboto Mono, monospace;
-	font-size: 0.9rem;
-
-	padding: 1em;
-	margin: 0 -1em;
-
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.monospace {
-	font-family: Fira Code, Hack, Source Code Pro, Roboto Mono, monospace;
-}
-
+/* 媒体元素 */
 article img {
     max-width: 100%;
 }
 
 article figure img {
     display: block;
-    margin: auto;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
 }
 
+article figcaption {
+    text-align: center;
+    font-style: italic;
+}
+
+/* =========================================
+   6. 代码块 (Code Blocks)
+========================================= */
+.monospace {
+    font-family: var(--font-mono);
+}
+
+article pre, 
+article .code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background-color: var(--color-code-bg);
+    border-top: 2px solid var(--color-code-border);
+    border-bottom: 2px solid var(--color-code-border);
+    overflow-x: auto;
+    text-align: left;
+    line-height: 1.3;
+    font-variant-ligatures: none;
+    /* 合并并修正 padding 冲突 */
+    padding: 10px 1rem;
+    margin: 0 -1rem;
+}
+
+/* =========================================
+   7. 表格 (Tables)
+========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+tr {
+    border-bottom: 1px solid var(--color-border-main);
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-table-stripe);
+}
+
+/* =========================================
+   8. 交互与组件 (Components)
+========================================= */
+/* 锚点链接 */
 article a.anchor {
-    color: black;
-    text-decoration: none !important;
+    color: inherit;
+    text-decoration: none;
 }
-
 
 article a.anchor h2::before,
 article a.anchor h3::before,
 article a.anchor h4::before {
     visibility: hidden;
     content: "# ";
-	margin-left: -2ch;
+    margin-left: -2ch;
 }
 
 article a.anchor h2:hover::before,
@@ -186,77 +256,57 @@ article a.anchor h3:hover::before,
 article a.anchor h4:hover::before {
     visibility: visible;
     content: "# ";
-	margin-left: -2ch;
+    margin-left: -2ch;
 }
 
-.send-comment {
-    margin-top: 30px;
-    font-size: .7rem;
+/* 提示框 */
+.box {
+    padding: 5px 0 5px 10px;
 }
 
+.box.warning {
+    border-left: 2px solid var(--color-warning-border);
+    background-color: var(--color-warning-bg);
+}
+
+.box.warning .warning-title {
+    color: var(--color-warning-text);
+    font-weight: bold;
+}
+
+.box.warning .warning-sign {
+    background-color: var(--color-warning-border);
+    color: white;
+}
+
+/* 展开组件 */
 details > summary {
     font-weight: bold;
     font-size: 0.8em;
     cursor: pointer;
 }
 
-div.box {
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
-div.box.warning {
-	border-left: 2px solid orange;
-	background-color: #fff1cd;
-}
-
-div.box.warning .warning-title {
-	color: orange;
-	font-weight: bold;
-}
-
-div.box.warning .warning-sign {
-	background-color: orange;
-	color: white;
-}
-
-/* Footer */
-
-footer {
-    margin-top: 70px;
-    font-weight: lighter;
+/* 评论区 */
+.send-comment {
+    margin-top: 30px;
     font-size: 0.7rem;
+}
+
+/* 友情链接/友链页 */
+.links {
+    list-style: none;
+}
+
+.links span.date a {
+    color: var(--color-border-main);
+    text-decoration: none;
+}
+
+.links li p {
+    margin-left: -20px;
+}
+
+.links > li {
+    border-bottom: 2px dotted var(--color-border-main);
     margin-bottom: 10px;
-    margin-left: 10px;
-}
-
-/* Links page */
-ul.links {
-	list-style: none;
-}
-
-ul.links span.date a {
-	color: black;
-	text-decoration: none;
-}
-
-ul.links li p {
-	margin-left: -20px;
-}
-
-ul.links > li {
-	border-bottom: 2px dotted black;
-    margin-bottom: 10px;
-}
-
-header#title-block-header h1 {
-    font-size: 1.5rem;
-    display: block;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
 }
