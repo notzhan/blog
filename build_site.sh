@@ -19,9 +19,14 @@ MARKDOWNOPTS_POST="$PANDOC_POST $FOOTER_POST"
 MARKDOWNOPTS_DISQUS="${PANDOC_POST} $DISQUS $FOOTER_POST"
 
 DEPLOY_DIRECTORY="deploy"
-SITE_NAME="Yang"
+SITE_NAME="${SITE_NAME:-Blog}"
+SITE_URL="${SITE_URL:-}"
 
 function generate_RSS_feed {
+    if [[ -z "$SITE_URL" ]]; then
+        echo "Skipping RSS feed: SITE_URL is not set."
+        return
+    fi
     echo "Generating RSS feed"
     declare items
     while read -r file; do
@@ -33,7 +38,7 @@ function generate_RSS_feed {
     <item>
       <title>${title}</title>
       <description><![CDATA[${html}]]></description>
-      <link>https://www.imtxc.com/$url_path</link>
+      <link>${SITE_URL}/$url_path</link>
       <pubDate>${date}</pubDate>
     </item>
 END
@@ -46,8 +51,8 @@ END
 <rss version="2.0">
   <channel>
     <title>${SITE_NAME}</title>
-    <link>https://www.imtxc.com/</link>
-    <description>yang's</description>
+    <link>${SITE_URL}/</link>
+    <description>${SITE_NAME}</description>
     <language>zh-cn</language>
     <pubDate>${pub_date}</pubDate>
     ${items}
